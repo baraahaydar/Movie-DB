@@ -1,0 +1,29 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "hello",
+  "main": "index.js",
+  "scripts": {
+    "test": "moviedb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baraahaydar/Movie-DB.git"
+  },
+  "keywords": [
+    "my",
+    "rep"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baraahaydar/Movie-DB/issues"
+  },
+  "homepage": "https://github.com/baraahaydar/Movie-DB#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
