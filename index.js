@@ -41,7 +41,19 @@ app.get('/search', function(req, res) {
 });
 
 app.get('/movies/add', function(req, res) {
-    res.status(200).send("Create")
+    var name = req.query.title
+    var year = req.query.year
+    var len = year.toString().length
+    if(name == "" || year == "" || len !=4 || isNaN(year)){res.status(403).send('you cannot create a movie without providing a title and a year')}
+    else{
+        if(req.query.rating == "" || typeof req.query.rating === "undefined"){
+            movie={title: req.query.title, year: req.query.year, rating: 4}}
+        else{
+            movie={title: req.query.title, year: req.query.year, rating: req.query.rating}
+        }
+    }
+    movies.push(movie)
+    res.status(200).send(movies)
 });
 
 app.get('/movies/get', function(req, res) {
