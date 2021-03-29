@@ -4,7 +4,8 @@
   "description": "hello",
   "main": "index.js",
   "scripts": {
-    "test": "moviedb"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
