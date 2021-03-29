@@ -40,7 +40,7 @@ app.get('/search', function(req, res) {
     else{res.status(200).send("OK! You searched for:" + req.query.s)}
 });
 
-app.get('/movies/add', function(req, res) {
+app.post('movies/add', function(req, res) {
     var name = req.query.title
     var year = req.query.year
     var len = year.toString().length
@@ -85,10 +85,10 @@ app.get('/movies/get/id/:id', function(req, res) {
 });
 
 //Updating move database
-app.get('/movies/update', function(req, res) {
+app.put('/movies/update', function(req, res) {
     res.status(200).send("Update")
 });
-app.get("/movies/update/:id", function (req, res) {
+app.put("/movies/update/:id", function (req, res) {
     if(req.params.id <= 0 || req.params.id > movies.length){
       res.status(404).send("the movie " + req.params.id + " does not exist");
     } 
@@ -96,7 +96,7 @@ app.get("/movies/update/:id", function (req, res) {
         movies[req.params.id - 1] = {
             title: movies[req.params.id - 1].title,
             year: movies[req.params.id - 1].year,
-            rating: req.query.rating,
+            rating: movies[req.params.id -1].rating,
         };
     } 
     else if((req.query.title == "" && req.query.rating == "") || (typeof req.query.title === "undefined" && typeof req.query.rating === "undefined")){
@@ -145,7 +145,7 @@ app.get('/movies/delete', function(req, res) {
     res.status(200).send("Delete")
 });
 
-app.get('/movies/delete/:id', function(req, res) {
+app.delete('/movies/delete/:id', function(req, res) {
     if(req.query.id <=0 || req.params.id > movies.length){res.status(404).send('the movie ' + req.params.id + ' does not exist')}
     else{
         movies.splice(req.params.id -1, 1)
